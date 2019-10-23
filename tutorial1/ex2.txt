@@ -1,7 +1,7 @@
-| - head -n 4 idx1_shuf.txt | sort
-|&  grep -i 5 * |& cat
+head -n 4 idx1_shuf.txt | sort
+grep -i 5 * |& cat
 
->Use a right angle bracket to redirect command output to a file.
+> Use a right angle bracket to redirect command output to a file.
 
 < Use a left angle bracket to use the contents of a file as input to the command.
 
