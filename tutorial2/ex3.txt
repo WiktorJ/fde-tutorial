@@ -1,0 +1,4 @@
+Alternative solutions:
+
+1) join -t '|' -1 1 -2 2  <(cut -d '|' -f 1,2 region.tbl | grep EUROPE) <(cut  -d '|' -f 2,3 nation.tbl | sort -k 2 -n -t '|') | cut -d '|' -f 3
+   join -1 1 -2 3 -t '|' region.tbl <(cat nation.tbl | sort -t '|' -k 3) | grep 'EUROPE' | awk -F '|' 'BEGIN{}{print $5}END{}'
