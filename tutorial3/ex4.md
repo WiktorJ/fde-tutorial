@@ -19,12 +19,12 @@ If `highestBitSetIffByteNot0 = 0XXX XXXX` then `highestSetIf0 = 1000 0000` else 
 
 `uint64_t highestSetIf0 = ~highestBitSetIffByteNot0 & high` 
 
-We get one byte of `high` to be equal `1000 0000` and we negate the `highestBitSetIffByteNot0` so we for sure zero
-all the bits except from the first by `&` operation and we keep the first set only if the `highestBitSetIffByteNot0 = 0XXX XXXX`
+We get each byte of `high` to be equal `1000 0000` and we negate the `highestBitSetIffByteNot0` so we for sure zero out
+all the bits except from the first. By `&` operation and we keep the first set only if the `highestBitSetIffByteNot0 = 0XXX XXXX`
 
 #### 7
 
-`ipattern = 0 x0A0A0A0A0A0A0A0A;` \\ hex value of ’\n ’ is 0 A
+`ipattern = 0 x0A0A0A0A0A0A0A0A;` \\ hex value of ’\n ’ is `0A`
 
 `uint64_t low = 0 x7F7F7F7F7F7F7F7F;`
 
@@ -44,11 +44,10 @@ all the bits except from the first by `&` operation and we keep the first set on
 
 `uint64_t high = 0x8080808080808080;`
 
-// add lowChar to know which one of the chars was <= 127 
-`uint64_t lowChar = ~ block & high` // (For `block = 1XXX XXX` we have `0000 0000` otherwise `1000 0000`)
 
-// added & low to install invariant : byte values <= 127
-`all0iffNl = block ^ pattern & low;` // by doing `& low` we make sure that the highest bit is `0` so we can proceed as before
+`uint64_t lowChar = ~ block & high` // add lowChar to know which one of the chars was <= 127  (For `block = 1XXX XXX` we have `0000 0000` otherwise `1000 0000`)
+
+`all0iffNl = block ^ pattern & low;` // added & low to install invariant : byte values <= 127, by doing `& low` we make sure that the highest bit is `0` so we can proceed as before
 
 `highestBitSetIffByteNot0 = all0iffNl + low;`
 
