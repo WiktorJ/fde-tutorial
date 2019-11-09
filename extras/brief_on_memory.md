@@ -81,7 +81,7 @@ This does not mean the kernel uses that much physical memory, only that it has t
 
 ## Loading a file: read vs map
 
-(NOTE: The description below is very simplified and does not take into the account many of modern development in this are. However it's consider enough for this course.)
+(NOTE: The description below is very simplified and does not take into the account many of modern development in this area. However, it should give you enough information to proceed with next exercises.)
 
 Regardless which option you choose, the file loading operation **always** goes through the **Page Cache**. As the name suggest, Page Cache stores data pages 
 (chunks of memory, usually 4KB). The pages are the smallest unit of memory for OS. Even if you request to read one byte (e.g. only first character from the file)
