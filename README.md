@@ -17,7 +17,7 @@ https://gitforwindows.org/
 
  * **Try to use bash/terminal on daily basis.**
     When doing assignments/projects for other courses, switch from GUI to terminal. 
-    Maybe at the begging you will be slower and annoyed. Maybe you will have to look up every single command, 
+    Maybe at the beginning you will be slower and annoyed. Maybe you will have to look up every single command, 
     but believe me, working from terminal is much more efficient than using GUI in majority of the cases. 
     This is also the best way to learn about bash and GNU utils.
     
