@@ -1,9 +1,9 @@
-####4
+#### 4
 `uint64_t pattern = 0x0A0A0A0A0A0A0A0A;`  hex value of `\n` is `0A`
 
 `uint64_t all0iffNl = block ^ pattern;` `0^0 = 1^1 = 0`, `1^0 = 0^1 = 1`
 
-####5
+#### 5
 for 8 bit `searchResult` we have at most 0111 1111 and at least 0000 0001 so adding `0x7F=0111111` will make the 
 highest bit of `searchResult` 1 if and only if `searchResult != 0`
 
@@ -11,7 +11,7 @@ highest bit of `searchResult` 1 if and only if `searchResult != 0`
 
 `uint64_t highestBitSetIffByteNot0 = searchResult + low;` 
 
-####6
+#### 6
 If `highestBitSetIffByteNot0 = 0XXX XXXX` then `highestSetIf0 = 1000 0000` else if `highestBitSetIffByteNot0 = 1XXX XXXX`
 `highestSetIf0 = 0000 0000`
 
@@ -22,7 +22,7 @@ If `highestBitSetIffByteNot0 = 0XXX XXXX` then `highestSetIf0 = 1000 0000` else 
 We get one byte of `high` to be equal `1000 0000` and we negate the `highestBitSetIffByteNot0` so we for sure zero
 all the bits except from the first by `&` operation and we keep the first set only if the `highestBitSetIffByteNot0 = 0XXX XXXX`
 
-####7
+#### 7
 
 `ipattern = 0 x0A0A0A0A0A0A0A0A;` \\ hex value of ’\n ’ is 0 A
 
@@ -36,7 +36,7 @@ all the bits except from the first by `&` operation and we keep the first set on
 
 `highestSetIf0 = ~ highestBitSetIffByteNot0 & high;` \\ now we have the highest bit set only for the new line
 
-####8
+#### 8
 
 `pattern = 0x0A0A0A0A0A0A0A0A;`
 
