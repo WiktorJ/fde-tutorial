@@ -29,7 +29,7 @@ https://gitforwindows.org/
    You have only 1.5h in the tutorial and we have to proceed quite fast with the material.
    If you see the exercises for the first time in the class, it's very hard to follow.
    
- * Read [this short explanation on how memory works](extras/brief_on_memory.md)
+ * I prepared [this short explanation on how memory works](extras/brief_on_memory.md), you may find it helpful.
    
 To be continued...
     
