@@ -1,4 +1,4 @@
-# fde-tutorial
+# Foundations of Data Engineering - Extra materials for tutorial sessios of WS19/20 - Class description [here](https://campus.tum.de/tumonline/WBMODHB.wbShowMHBReadOnly?pKnotenNr=1231549)
 
 ## Windows users hints - how to do the exercises on Microsoft OS
 
