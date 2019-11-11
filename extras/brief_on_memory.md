@@ -55,6 +55,9 @@ Here is an explanation using technical terminology
 3. The VM Manager has a few bytes of his own, some of which move back and forth between memory and disk just like anybody else's, but some of which are just too heavyily used to move out of the memory.
 4. With the given set of rules, oft-referenced bytes tend to get kept mostly in the memory, while little-referenced bytes stay mostly on a disk.
 5. Sometimes even the disks get full. The VM Manager then has to start piling bytes on the dump out back. This makes the computer slow because it takes a long time to get bytes off the dump when they are needed in the memory. A forthcoming change in the rules will allow the VM Manager to select the grubbiest bytes in the disks and send them to dump in his spare time, thus keeping the disks from getting too full. This means that the most infrequently-referenceed bytes will end up in the dump so the VM Manager won't have to get bytes from the dump so often. This should speed up the game when there are a lot of processs and the disks are getting full.
+
+## Process memory layout
+
 ([source](https://manybutfinite.com/post/anatomy-of-a-program-in-memory/))
 ![memory schema](linuxFlexibleAddressSpaceLayout.png) 
 
