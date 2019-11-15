@@ -197,11 +197,11 @@ findNl(unsigned char*, unsigned char*):
 
 **17 - 21** and **23 - 27** correspond to following operations in the `c++` code:
 
-    ```c++
-        uint64_t lowChars=(~block)&highBits;
-        uint64_t matches0A=~((((block&lowBits)^0x0A0A0A0A0A0A0A0Aull)+lowBits)&highBits);
-        uint64_t matches=matches0A&lowChars;
-    ```
+```c++
+    uint64_t lowChars=(~block)&highBits;
+    uint64_t matches0A=~((((block&lowBits)^0x0A0A0A0A0A0A0A0Aull)+lowBits)&highBits);
+    uint64_t matches=matches0A&lowChars;
+```
 **28** *Jump if equal* to .L14. So This is the place where the function falls in to the loop. If the previous instruction `and     rdx, rcx`
     resulted in `0` (which mean `matches` are empty (no new line found)) appropriate flag was set and the *jump* instruction will move
     the execution to label .L14.
