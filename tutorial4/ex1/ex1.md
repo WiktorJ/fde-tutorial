@@ -177,7 +177,7 @@ findNl(unsigned char*, unsigned char*):
 38        rep ret
 ```
 
-**1 - 4** Those lines are very as in the "naive" vase
+**1 - 4** Those lines are very similar to the "naive" case
 
 **5 - 7** In the code we use 3 constants `0x8080808080808080ull`, `0x7F7F7F7F7F7F7F7Full`, `0x0A0A0A0A0A0A0A0Aull`. In those lines
     They are put into the registers from where it will be easy for processor to access them.
