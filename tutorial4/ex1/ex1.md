@@ -68,12 +68,12 @@ We have 14 lines of code (4 labels are there only for human readability), let's 
 14. This, and all the subsequent instructions cause the function to return with value currently stored in `rax`
 
 ```asm
-1         cmp     rdi, rsi # rdi contains first argument, rsi second
-2         mov     rax, rdi # move rdi to rax
-3         jnb     .L6 # jump not below, cmp rdi, rsi = rdi - rsi, we want rsi (a.k.a. limit )to be greater than rdi (a.k.a. iter), so this will set CF=0 (no carry if rdi > rsi) and we can finish
-4         cmp     BYTE PTR [rdi], 10 # compare with new line
-5         jne     .L4 # if not new line goto L4
-6         jmp     .L1 # return
+1         cmp     rdi, rsi ; rdi contains first argument, rsi second
+2         mov     rax, rdi ; move rdi to rax
+3         jnb     .L6      ; jump not below, cmp rdi, rsi = rdi - rsi, we want rsi (a.k.a. limit )to be greater than rdi (a.k.a. iter), so this will set CF=0 (no carry if rdi > rsi) and we can finish
+4         cmp     BYTE PTR [rdi], 10 ; compare with new line
+5         jne     .L4 ; if not new line goto L4
+6         jmp     .L1 ; return
 7     .L5:
 8         cmp     BYTE PTR [rax], 10
 9         je      .L1
