@@ -54,9 +54,10 @@ Here is an explanation using technical terminology
 2. One consequence of Rule 13 is that everybody's virtual address will be similar from game to game, regardless of the number of processs.
 3. The VM Manager has a few bytes of his own, some of which move back and forth between memory and disk just like anybody else's, but some of which are just too heavyily used to move out of the memory.
 4. With the given set of rules, oft-referenced bytes tend to get kept mostly in the memory, while little-referenced bytes stay mostly on a disk.
-5. Sometimes even the disks get full. The VM Manager then has to start piling bytes on the dump out back. This makes the computer slow because it takes a long time to get bytes off the dump when they are needed in the memory. A forthcoming change in the rules will allow the VM Manager to select the grubbiest bytes in the disks and send them to dump in his spare time, thus keeping the disks from getting too full. This means that the most infrequently-referenceed bytes will end up in the dump so the VM Manager won't have to get bytes from the dump so often. This should speed up the game when there are a lot of processs and the disks are getting full.metimes even the warehouses get full. The Thing King then has to start piling things on the dump out back. This makes the game slow because it takes a long time to get things off the dump when they are needed in the workshop. A forthcoming change in the rules will allow the Thing King to select the grubbiest things in the warehouses and send them to dump in his spare time, thus keeping the warehouses from getting too full. This means that the most infrequently-zarked things will end up in the dump so the Thing King won't have to get things from the dump so often. This should speed up the game when there are lots of users and the warehouses are getting full.
+5. Sometimes even the disks get full. The VM Manager then has to start piling bytes on the dump out back. This makes the computer slow because it takes a long time to get bytes off the dump when they are needed in the memory. A forthcoming change in the rules will allow the VM Manager to select the grubbiest bytes in the disks and send them to dump in his spare time, thus keeping the disks from getting too full. This means that the most infrequently-referenceed bytes will end up in the dump so the VM Manager won't have to get bytes from the dump so often. This should speed up the game when there are a lot of processs and the disks are getting full.
 
 ## Process memory layout
+
 ([source](https://manybutfinite.com/post/anatomy-of-a-program-in-memory/))
 ![memory schema](linuxFlexibleAddressSpaceLayout.png) 
 
@@ -90,7 +91,7 @@ whole page will be loaded into the Page Cache.
 ### Read
 (Assumption: the file hasn't been read yet and isn't present in RAM)
 * Process ask the OS to load X bytes of the file.
-* OS reads the Y pages (where Y = X/4096B + 1. In this way we load all the requested data, with page system preserved)
+* OS reads the Y pages (where Y contains all X bytes and possibly more, so that the page system preserved)
 * The data are read into the **Page Cache** 
 * The data are **copied** from Page Cache into the process **User Space**
 * The data are mapped to the **heap** address pool of the process.
