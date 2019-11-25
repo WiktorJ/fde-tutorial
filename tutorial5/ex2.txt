@@ -1,0 +1,29 @@
+To better understand how the "inner" query works for the decorrelated version you can play with those queries.
+
+
+
+WITH orders (o_shippriority, o_orderstatus, o_totalprice)
+AS (VALUES ('A', 1, 2), ('A', 2, 6), ('B', 2, 4),('B', 1, 8), ('B', 2, 10), ('A', 1, 12))
+select * from orders
+
+WITH orders (o_shippriority, o_orderstatus, o_totalprice)
+AS (VALUES ('A', 1, 2), ('A', 2, 6), ('B', 2, 4),('B', 1, 8), ('B', 2, 10), ('A', 1, 12))
+select avg(o_totalprice), o_shippriority, o_orderstatus from orders
+group by o_shippriority, o_orderstatus
+
+WITH orders (o_shippriority, o_orderstatus, o_totalprice)
+AS (VALUES ('A', 1, 2), ('A', 2, 6), ('B', 2, 4),('B', 1, 8), ('B', 2, 10), ('A', 1, 12))
+select * from orders o1
+join orders o2 on o1.o_shippriority = o2.o_shippriority or o1.o_orderstatus = o2.o_orderstatus
+
+WITH orders (o_shippriority, o_orderstatus, o_totalprice)
+AS (VALUES ('A', 1, 2), ('A', 2, 6), ('B', 2, 4),('B', 1, 8), ('B', 2, 10), ('A', 1, 12))
+select * from (select distinct o_shippriority, o_orderstatus from orders) o1
+join orders o2 on o1.o_shippriority = o2.o_shippriority or o1.o_orderstatus = o2.o_orderstatus
+order by o1.o_shippriority, o1.o_orderstatus
+
+WITH orders (o_shippriority, o_orderstatus, o_totalprice)
+AS (VALUES ('A', 1, 2), ('A', 2, 6), ('B', 2, 4),('B', 1, 8), ('B', 2, 10), ('A', 1, 12))
+select avg(o2.o_totalprice), o1.o_shippriority, o1.o_orderstatus from (select distinct o_shippriority, o_orderstatus from orders) o1
+join orders o2 on o1.o_shippriority = o2.o_shippriority or o1.o_orderstatus = o2.o_orderstatus
+group by o1.o_shippriority, o1.o_orderstatus
