@@ -109,4 +109,8 @@ venv.bak/
 *.tbl
 tutorial6/ex4
 tutorial6/ex2.md
-
+tutorial7/file.csv
+tutorial7/tweaking_query.md
+tutorial7/actors*
+tutorial7/formulating_query.md
+tutorial8/songs.csv
