@@ -1,5 +1,7 @@
 # Foundations of Data Engineering - Extra materials for tutorial sessios of WS19/20 - Class description [here](https://campus.tum.de/tumonline/WBMODHB.wbShowMHBReadOnly?pKnotenNr=1231549)
 
+# OFFICE HOURS: 18.12.2018 (Wednesday) at 12:00-14:00, room:  02.11.58 MI. Questions about previous sessions.
+
 ## Windows users hints - how to do the exercises on Microsoft OS
 
 
